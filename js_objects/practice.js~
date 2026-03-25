@@ -1,0 +1,31 @@
+// creating an empty object
+
+let usr1 = new Object();
+let usr2 = {};
+
+console.log(usr1);
+console.log(usr2);
+
+console.log(typeof usr1);
+console.log(typeof usr2);
+
+// creating a usr object with some properties(key-value pair)
+
+
+let usr3 =
+    {
+	name : "Sultan",
+	age  : 20,
+    }
+
+
+console.log(usr3);
+console.log(usr3.name);
+console.log(usr3.age);
+
+usr3.isAdmin = true;
+console.log(usr3.isAdmin);
+
+delete usr3.age;
+
+console.log(usr);

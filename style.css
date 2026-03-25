@@ -1,0 +1,23 @@
+ul {
+  font-family: sans-serif;
+  display: flex;
+  list-style: none;
+  border: 1px solid black;
+}
+
+li {
+  margin: 5px;
+}
+
+.links-list a {
+  display: inline-block;
+  background-color: rgb(179 57 81);
+  color: white;
+  text-decoration: none;
+  padding: 1em 2em;
+}
+
+.links-list a:hover {
+  background-color: rgb(66 28 40);
+  color: white;
+}
