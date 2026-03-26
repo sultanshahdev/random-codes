@@ -1,0 +1,28 @@
+.html
+{
+    width:100vw;
+    height:100vh;
+}
+h1
+{
+    width:10px
+}
+#penguin-image
+{
+    width:clamp(20vw,200px,80vw);
+}
+
+p {
+  width: clamp(45ch, 50%, 75ch);
+  text-align:
+}
+div
+{
+    --clr: skyblue;
+    --size_height:20vh;
+    --size_width:20vw;
+    
+    height:var(--size_height);
+    width:var(--size_width);
+    background-color:var(--clr)
+}
