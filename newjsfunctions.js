@@ -17,3 +17,7 @@ const Book=
 
 let book1 = new Book("harry-potter","jk-rowling",233,'read');
 console.log(book1.info());
+
+console.log(Object.getPrototypeOf(book1) == Book.prototype);
+
+console.log(Object.getPrototypeOf(book1));
