@@ -61,4 +61,63 @@ let car1 = createCar('mehran','2016','Suzuki','classic');
 
 console.log(car1.drive());
 
+//ADDING ENCAPSULATION USIGN CLOSURE 
 
+
+let createEncapsulatedCar = function(model,make,brand) 
+{
+	let registeredNumber;
+
+	registerCar= function()
+	{
+		registeredNumber=Math.random()*10000;
+	}
+	
+	showRegistrationNumber= function()
+	{
+		return registeredNumber;
+	}
+
+	return {model,make,brand,registerCar,showRegistrationNumber};
+}
+
+//notice that no matter what we cannot access the registeredNumber by ourselves except by the proper method
+
+let car2= createEncapsulatedCar('Alto','2026','Suzuku');
+
+car2.registerCar();
+console.log(car2.showRegistrationNumber());
+
+
+// PROTOTYPAL INHERITANCE WITH FACTORY FUNCTIONS
+
+// SUPPOSE WE HAVE A SUPERCLASS AS SUPERHERO AND BASE CLASS SUPER-HUMAN
+
+//LETS CREATE THE SUPERCLASS
+
+
+let createSuperHero = function(name,ability,heroClass)
+{
+	return {name,ability,heroClass};
+
+}
+
+let createSuperHuman=function(name,ability,heroClass)
+{
+	let superHero    = createSuperHero(name,ability,heroClass);
+	let isSuperHuman = true;
+	let showInfo = function ()
+	{
+		return `${superHero.name}, from class ${superHero.heroClass}, can ${superHero.ability}`
+	}
+
+	return Object.assign({},superHero,{isSuperHuman,showInfo});
+
+}
+
+
+//CREATING A SUPER-HERO
+
+
+let superHero1 = new createSuperHuman('Captain America','Super Strength','A');
+console.log(superHero1.showInfo());
