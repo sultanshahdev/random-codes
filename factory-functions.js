@@ -121,3 +121,40 @@ let createSuperHuman=function(name,ability,heroClass)
 
 let superHero1 = new createSuperHuman('Captain America','Super Strength','A');
 console.log(superHero1.showInfo());
+
+// USAFAGE OF IMEDIATELLY INVOKED FUNCTION EXPRESSIONS IIFEs
+// CONSTRUCTING AN OBJECT FOR A GAME_PLAYER
+
+
+let player= (()=>
+	{
+		let currentHealth = 100;
+		let damageTake = 5.0;
+		let damageGive = 10.0;
+
+
+		let attack = function()
+		{
+			return `DAMAGE DEALT = ${damageGive}`;
+		}
+
+		let defend = function()
+		{
+			return `DAMAGE SUPRESSED = ${damageTake}`;
+		}
+		let gotHit = function()
+		{
+			currentHealth = currentHealth-damageTake;
+			return `DAMAGE TOOK = ${damageTake}, CURRENT HEALTH = ${currentHealth}`;
+		}
+
+		return{attack,defend,gotHit}
+	}
+)();
+
+//TESTING CREATED PLAYER USING IIFE METHODS
+
+console.log(player.attack());
+console.log(player.defend());
+console.log(player.gotHit());
+
