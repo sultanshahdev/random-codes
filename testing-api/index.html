@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="#" alt="">
+    <input id = "search-bar" type="text" placeholder="Search an image">
+    <button id="search-btn">Seach</button>
+
+    <script>
+        
+        const img = document.querySelector('img');
+        const searchBar = document.querySelector('#search-bar');
+        const searchBtn  = document.querySelector('#search-btn');
+
+        let getTextFromInput = function()
+        {
+            return searchBar.value;
+        }
+
+        searchBtn.addEventListener('click',()=>{
+            let queryText = getTextFromInput();
+
+            fetch(`https://api.giphy.com/v1/gifs/translate?api_key=24CVcaGNuHHtDZus0VSINYXmJmtklNpl&s=${queryText}`)
+            .then(function(result)
+            {
+                return result.json();
+            }).
+            then(function(result)
+            {
+            console.log(result);
+            img.src=result.data.images.original.url;
+        });
+
+        })
+
+
+        
+    </script>
+</body>
+</html>
